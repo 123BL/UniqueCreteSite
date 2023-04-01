@@ -1114,7 +1114,7 @@ section {
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
-.portfolio #portfolio-flters {
+.portfolio #portfolio-filters {
   padding: 0;
   margin: 0 auto 25px auto;
   list-style: none;
@@ -1122,7 +1122,7 @@ section {
   border-radius: 50px;
 }
 
-.portfolio #portfolio-flters li {
+.portfolio #portfolio-filters li {
   cursor: pointer;
   display: inline-block;
   padding: 8px 16px;
@@ -1136,13 +1136,13 @@ section {
   border-radius: 4px;
 }
 
-.portfolio #portfolio-flters li:hover,
-.portfolio #portfolio-flters li.filter-active {
+.portfolio #portfolio-filters li:hover,
+.portfolio #portfolio-filters li.filter-active {
   color: #fff;
   background: #ff4a17;
 }
 
-.portfolio #portfolio-flters li:last-child {
+.portfolio #portfolio-filters li:last-child {
   margin-right: 0;
 }
 

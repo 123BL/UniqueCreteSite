@@ -150,13 +150,13 @@
   /**
    * Scroll with ofset on page load with hash links in the url
    */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
-      }
-    }
-  });
+  // window.addEventListener('load', () => {
+  //   if (window.location.hash) {
+  //     if (select(window.location.hash)) {
+  //       scrollto(window.location.hash)
+  //     }
+  //   }
+  // });
 
   /**
    * Preloader
@@ -201,17 +201,26 @@
    * Porfolio isotope and filter
    */
   window.addEventListener('load', () => {
-
+    var hash = location.hash;
+    var matches = location.hash.match(/filter=([^&]+)/i);
+    var hashFilter = matches && matches[1];
+    
+    var current = document.querySelectorAll('[data-filter="'+ hashFilter +'"]')[0];
+    if(current)
+      current.classList.add('filter-active');
+    
     let portfolioContainer = select('.portfolio-container');
 
     if (portfolioContainer) {
       let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
+        itemSelector: '.portfolio-item',
+        //filter on load
+        filter: hashFilter
       });
 
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
+      let portfolioFilters = select('#portfolio-filters li', true);
+  
+      on('click', '#portfolio-filters li', function(e) {
         e.preventDefault();
         portfolioFilters.forEach(function(el) {
           el.classList.remove('filter-active');
@@ -229,6 +238,7 @@
     }
 
   });
+  
 
   /**
    * Initiate portfolio lightbox 
